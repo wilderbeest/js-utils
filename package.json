@@ -1,0 +1,21 @@
+{
+  "name": "@wilderbeest/js-utils",
+  "version": "0.1.0",
+  "description": "Common utils I often copy into projects",
+  "author": "David Ragsdale <https://github.com/wilderbeest>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilderbeest/js-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wilderbeest/js-utils/issues"
+  },
+  "homepage": "https://github.com/wilderbeest/js-utils#readme",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
