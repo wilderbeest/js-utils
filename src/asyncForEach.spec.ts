@@ -1,11 +1,11 @@
-const asyncFor = require('./asyncFor');
+import asyncForEach from './asyncForEach';
 
 describe('asyncFor.js', () => {
   it('executes the items in order', async () => {
     const elems = ['a', 'b', 'c'];
     const cb = jest.fn();
 
-    await asyncFor(elems, cb);
+    await asyncForEach(elems, cb);
 
     expect(cb.mock.calls).toEqual([
       ['a', 0, elems],
@@ -16,9 +16,9 @@ describe('asyncFor.js', () => {
 
   it('waits for each item to finish before executing the next', async () => {
     const elems = ['a', 'b', 'c'];
-    const calledArgs = [];
+    const calledArgs : string[] = [];
 
-    await asyncFor(elems, (elem) => new Promise((resolve, reject) => {
+    await asyncForEach(elems, (elem) => new Promise<void>((resolve, reject) => {
       setTimeout(async () => {
         try {
           if (elem === 'a') {
@@ -44,7 +44,7 @@ describe('asyncFor.js', () => {
   it('indicates the item index in the error', async () => {
     const elems = ['a', 'b', 'c'];
     try {
-      await asyncFor(elems, async (elem) => {
+      await asyncForEach(elems, async (elem) => {
         if (elem === 'b') {
           throw new Error('OOPS!');
         }

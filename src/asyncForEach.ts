@@ -1,6 +1,8 @@
-const sequence = require('./sequence');
+import sequence from './sequence';
 
 class AsyncForError extends Error {
+  index: any;
+
   constructor(index, err) {
     super();
     this.name = 'AsyncForError';
@@ -10,7 +12,7 @@ class AsyncForError extends Error {
 }
 
 const asyncForEach = (arr, callback) => {
-  return sequence(arr.map((currentValue, idx, readonlyArr) => async (resolve, reject) => {
+  return sequence(arr.map((currentValue, idx, readonlyArr) => async () => {
     try {
       await callback(currentValue, idx, readonlyArr);
     } catch (err) {
@@ -19,4 +21,4 @@ const asyncForEach = (arr, callback) => {
   }));
 };
 
-module.exports = asyncForEach;
+export default asyncForEach;
