@@ -1,6 +1,6 @@
 {
   "name": "@wilderbeest/js-utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Common utils I often copy into projects",
   "author": "David Ragsdale <https://github.com/wilderbeest>",
   "license": "MIT",
